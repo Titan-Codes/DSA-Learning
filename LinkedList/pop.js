@@ -1,23 +1,23 @@
 // ALTERNATIVE METHOD OF POP USING ONLY ONE VARIABLE
 
 class Node {
-    constructor(value){
+    constructor(value) {
         this.value = value
         this.next = null
     }
 }
 
 class LinkedList {
-    constructor(value){
+    constructor(value) {
         const newNode = new Node(value)
         this.head = newNode
         this.tail = this.head
         this.length = 1
     }
 
-    push(value){
+    push(value) {
         const newNode = new Node(value)
-        if(!this.head){
+        if (!this.head) {
             this.head = newNode
             this.tail = newNode
         } else {
@@ -40,7 +40,7 @@ class LinkedList {
 
         // Edge case 2: Linked list has only 1 node
 
-        else if(this.length == 1){
+        else if (this.length == 1) {
 
             this.head = null;
 
@@ -48,23 +48,24 @@ class LinkedList {
 
         } else {
 
-        // First, we have to make a new pointer that starts from the head and traverses through the linked list
+            // First, we have to make a new pointer that starts from the head and traverses through the linked list
 
-          let tracker = this.head;
+            let tracker = this.head;
 
-          while (tracker.next.next != null){ // This pointer checks if the next node points to null
+            while (tracker.next.next != null) { // This pointer checks if the next node points to null
 
-              tracker = tracker.next;
+                tracker = tracker.next;
 
-          }
+            }
 
-          tracker.next = null; // If so, the pointer has identified the second last node
+            tracker.next = null; // If so, the pointer has identified the second last node
 
-           // The second last node points to null
+            // The second last node points to null
 
-          this.tail = tracker; // The tail pointer points to the pointer pointing to the second last node
+            this.tail = tracker; // The tail pointer points to the pointer pointing to the second last node
 
         }
+    }
 }
 
 var myLinkedList = new LinkedList(4)
