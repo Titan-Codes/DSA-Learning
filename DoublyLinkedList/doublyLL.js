@@ -8,11 +8,29 @@ class Node{
 
 class DoublyLinkedList{
     constructor(value){
-        const newNode = new Node(value)
-        this.head = value
-        this.tail = this.head
-        this.length = 1
+        const newNode = new Node(value);
+        this.head = newNode;
+        this.tail = this.head;
+        this.length = 1;
+    }
+    push(value){
+        const newNode = new Node(value);
+        if(!this.head){
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            this.tail.next = newNode;
+            newNode.prev = this.tail;
+            this.tail = newNode;
+        }
+        this.length++;
+        return this;
+        
     }
 }
 
-let myDoublyLinkedList = new DoublyLinkedList(7)
+let myDoublyLinkedList = new DoublyLinkedList(1)
+myDoublyLinkedList.push(2)
+myDoublyLinkedList.push(3)
+
+console.log(myDoublyLinkedList)
