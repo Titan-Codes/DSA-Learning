@@ -1,21 +1,21 @@
-class Node{
-    constructor(value){
+class Node {
+    constructor(value) {
         this.value = value
         this.next = null
         this.prev = null
     }
 }
 
-class DoublyLinkedList{
-    constructor(value){
+class DoublyLinkedList {
+    constructor(value) {
         const newNode = new Node(value);
         this.head = newNode;
         this.tail = this.head;
         this.length = 1;
     }
-    push(value){
+    push(value) {
         const newNode = new Node(value);
-        if(!this.head){
+        if (!this.head) {
             this.head = newNode;
             this.tail = newNode;
         } else {
@@ -25,21 +25,21 @@ class DoublyLinkedList{
         }
         this.length++;
         return this;
-        
+
     }
-    pop(){
+    pop() {
+        if (this.length === 0) { return undefined; }
         let temp = this.tail;
-        if(!this.head){
-            return null;
-        }
-        if(this.length === 1){
-            return null;
+        if (this.length === 1) {
+            this.head == null;
+            this.tail = null;
         } else {
             this.tail = this.tail.prev;
-            temp.next = null;
-            this.length--;
-            return this;
+            this.tail.next = null;
+            temp.prev = null;
         }
+        this.length--;
+        return temp;
     }
 }
 
