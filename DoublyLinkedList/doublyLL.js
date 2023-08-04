@@ -70,6 +70,25 @@ class DoublyLinkedList {
         this.length--;
         return temp;
     }
+
+    get(index){
+        if(index === 0 || index >= this.length){
+            return undefined;
+        }
+        let temp;
+        if(index < this.length/2){
+            temp = this.head;
+            for(var i=0;i<index;i++){
+                temp = temp.next;
+            }
+        } else {
+            temp = this.tail;
+            for(var i=this.length-1;i>index;i--){
+                temp = temp.prev;
+            }
+        }
+        return temp;
+    }
 }
 
 let myDoublyLinkedList = new DoublyLinkedList(1)
